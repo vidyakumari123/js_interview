@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <h1>let var const</h1>
+
+    <script>
+//funtion scope
+    // var a=5
+    // console.log(a)
+//block  scope
+
+// {
+//     let a=5   
+// }
+//           //index.html:21 Uncaught ReferenceError: a is not defined
+// console.log(a)
+
+
+// {
+//      const a =5
+// }
+// //index.html:28 Uncaught ReferenceError: a is not defined
+// console.log(a)
+
+
+
+// shadowing
+//  function test(){
+//     let a ="hello"
+
+//     if(true){
+//         let a ="hie"
+//         console.log(a)
+//     }
+
+//     console.log(a)
+//  }
+// test()
+
+
+
+//  function test(){
+//     var  a ="hello"
+//     let b ="bye"
+
+//     if(true){
+//         let a ="hie"
+//         var b= "goodbye"
+//         console.log(a)
+//         console.log(a)
+//     }
+
+//     console.log(a)
+//  }
+// test()
+
+//DECLARATION
+// var a    //we can re declare as many time
+// var a
+
+
+// let a   //Uncaught SyntaxError: Identifier 'a' has already been declared
+// let a   // we cant redeclare a let many  times
+
+
+// const a  //Uncaught SyntaxError: Missing initializer in const declaration
+// const a 
+
+
+// declareation without intialization
+
+// const a  //Uncaught SyntaxError: Missing initializer in const declaration
+
+
+//RE-INITIALISATION
+
+// var a=5
+// a=6
+
+
+// let a=5
+// a-6
+
+// const a=9
+// a=10   //index.html:90 Uncaught TypeError: Assignment to constant variable.
+
+
+
+
+
+//HOISTING
+
+// console.log(count)
+// var count=1  //UNDEFINED
+
+
+//  var count  //UNDEFINED
+//  console.log(count)
+//  count=1    
+
+
+//what about let?
+
+// console.log(count) //index.html:109 Uncaught ReferenceError: Cannot access 'count' before initialization
+    
+// let count =1 //they are hoisted at TEMPORAL DEAD ZONE
+
+
+// console.log(count)
+// let count =1
+// var count2=2
+
+
+//INTERVIEW QUESTION
+
+// function abc(){
+//     console.log(a)
+
+//     var a=10
+// }
+// abc()
+
+
+function abc(){
+    console.log(a,b,c)
+
+    const c=30
+    let b=20
+    var a=10
+}
+
+abc()
+    </script>
+</body>
+</html>

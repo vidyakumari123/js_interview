@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        OTPUT BASED QUESTION
+    </h1>
+    <script>
+        //MAP,FILTER ,REDUCE=O/P BASED QUESTION
+        // QUESTIOM 1= RETURN ONLY NAME IN CAPITAL LETTER
+        // QUESTION 2=RETURN ONLY DEATILS OF THODE WHO SCORED MORE THEN 60 MARKS
+
+
+        let students=[
+
+        {
+            name:"vidya",roll:23,marks:80
+        },
+        {
+            name:"neha",roll:28,marks:90
+        },
+        
+        {
+            name:"jyoti",roll:40,marks:40
+        },
+        
+        {
+            name:"pallavi",roll:60,marks:20
+        }
+        
+        
+        ]
+
+//         let names=[]
+//         for(let i=0;i<students.length;i++){
+//             names.push(students[i].name.toUpperCase())
+//         }
+// console.log(names)
+
+
+// const names=students.map((stu)=>
+//     stu.name.toUpperCase()
+// )
+// console.log(names)
+
+
+
+//QUESTION 2
+
+// const details=students.filter((stu)=>stu.marks>60)
+// console.log(details)
+
+//QUESTION 3  SUM OF MARKS OF ALL STUDENTS
+
+// const sum =students.reduce((acc,curr)=> acc+curr.marks,0)
+
+// console.log(sum)
+
+//QUESTION 4 RETURN ONLY NAMES OF STUDENTS WHO SCORED MORE THENA 60
+
+// const names=students.filter((stu)=>stu.marks>60).map((stu)=>stu.name)
+// console.log(names)
+
+//QUESTION RETURN TOTAL MARKS FOR STUDENTS WITHN MARKS GREATER THEAN 60
+// after 20 marks have been added to those who scored less than 60
+
+const totalmarks=students.map((stu)=>{
+    if(stu.marks<60){
+        stu.marks +=20
+    }
+
+    return stu
+}).filter((stu)=>stu.marks>60).reduce((acc,curr)=>acc+curr.marks,0)
+console.log(totalmarks)
+    </script>
+</body>
+</html>
