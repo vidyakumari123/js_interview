@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>output based</h1>
+    <script>
+        // for(let i=0;i<5;i++){
+        //     setTimeout(function(){  //0 1 2 3 4
+        //         console.log(i)
+        //     },i*1000)
+        // }
+
+        // for(var  i=0;i<5;i++){
+        //     setTimeout(function(){  5 5  5 5 5
+        //         console.log(i)
+        //     },i*1000)
+        // }
+
+
+// hoisting
+        // var x=21
+        // var fun=function(){
+        //     console.log(x)
+        //     var x =20   undefined
+        // }
+
+        // fun()
+
+
+    // params ,arguments,spread ,rest
+
+    const fn=(a,x,y,...numbers)=>{  // if we are using the rest and spread operator it would be the last one
+        console.log(x,y,numbers)             
+    }
+
+    fn(2,4,5,6,7,8,9)
+    </script>
+</body>
+</html>

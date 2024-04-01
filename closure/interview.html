@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>interview question</h1>
+</body>
+<script>
+    //q1 what will be the logged to console
+
+//     let count = 0;
+// (function printcount(){
+//     if(count === 0){
+//         let count = 1; //shadowing
+//         console.log(count);  // 1 
+                          
+//     }
+
+//     //coun5t =0
+//     console.log(count);//0
+// })();
+
+
+//q2= write a function that would allow you to do this
+
+
+// function createBase(num){
+//     return function(innerNum){
+//      console.log(innerNum+num)
+//     }
+// }
+
+// var addSix =createBase(6)
+// addSix(10) //return 16
+// addSix(21) //return 27
+
+// q3 Time optimization
+
+// function find(index){
+//     let a=[]
+//     for(let i =0;i<1000000;i++){
+//         a[i]=i*i
+//     }
+//    return function(index){
+//     console.log(a[index])
+//    }
+    
+// } //AFTER OPTIMAZATION
+                      //36
+                      //6: 0.32421875 ms
+                      //144
+                      //50: 0.135009765625 ms
+    
+// const closure =find()
+// console.time("6")
+// closure(6)
+// console.timeEnd("6")
+// console.time("50")
+// closure(12)
+// console.timeEnd("50")
+
+
+//Q 4 BLOCK SCOPE AND SETIMEOUT
+ 
+//     for(var i=0;i<3;i++){
+
+//         function inner (i){
+//             setTimeout(function log(){ //using closure
+//         console.log(i)
+//     },i*1000)
+// }     
+// inner(i)
+//         }
+               // you have to print 0 1 2
+
+
+
+
+// for(var i=0;i<3;i++){
+//     setTimeout(function log(){
+//         console.log(i)              // 3  3  3
+//     },i* 1000)
+// }
+
+// for(let  i=0;i<3;i++){
+//     setTimeout(function log(){        // 0 1 2
+//         console.log(i)
+//     },i*1000)
+// }
+
+//q5-How would you use a closure to create a private counter
+
+//function counter(){
+    // var _counter=0
+
+    // function add (increment){
+    //     _counter += increment
+    // }
+
+    // function retrive (){
+    //     return "Counter ="+ _counter
+    // }
+
+    // return {
+    //     add,
+    //     retrive
+    // }
+//}
+// const c=counter()
+// c.add(5)                     // 15
+// c.add(10)
+// console.log(c.retrive())
+
+//q 6 Module pattern
+
+// var Module=(function(){
+//     function privateMethod(){
+//         // do something
+//         console.log('private')
+//     }
+//     return {
+//         publicMethod:function (){
+//             console.log('public')
+            
+//         }
+//     }
+// })()
+
+// Module.publicMethod()// public
+// Module.privateMethod()  //Uncaught TypeError: Module.privateMethod is not a function
+
+
+//Q7 make this run only once
+
+// let view
+// function likeTheVideo(){
+//     view="vidya"
+//     confirm.log("hello",view)
+// }
+
+// likeTheVideo()
+
+
+
+let view
+function likeTheVideo(){
+
+    let called=0
+
+    return function (){
+        if(called >0){
+            console.log("already done")
+        }else{
+            view="vidya"
+    console.log("hello",view)
+    called++
+        }
+    }
+    
+}
+let issubscribed =likeTheVideo()
+issubscribed()
+issubscribed()
+
+issubscribed()
+issubscribed()
+issubscribed()
+issubscribed()
+
+
+//Q8 once polyfill
+function once(func,context){
+let ran
+
+return function(){
+    if(func){
+        ran=func.apply(context || this,arguments)
+        func=null
+    }
+
+    return ran
+}
+}
+const hello =once(()=>console.log("hello"))
+hello()
+hello()
+hello()
+</script>
+</html>

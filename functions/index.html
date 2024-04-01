@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        FUNCTIONS
+    </h1>
+
+    <script>
+        // Q1- what is function declaration
+        // function square(num){
+        // return num*num
+        // }
+        // square()
+
+        //Q2-what is function expression
+        // const square =function(num){
+        //     return num*num
+        // }
+        // console.log(square(5))
+        // square()
+
+
+        //Q3-What is First class function
+
+        // function square(num){
+        //     return num*num
+        // }
+
+        // function displaySquare(fn){
+        //     console.log("sqaure is"+fn(5))
+        // }
+
+        // displaySquare(square)
+
+
+        //Q4 What is IIFE?
+        // (function sqaure(num){
+        //     console.log(num*num)
+        // })(5)
+
+
+        //output based
+
+        // (function (x){
+        //     return (function(y){
+        //         console.log(x)        
+        //     })(2)         //output 1
+        // })(1)
+
+        // Q5 Function scope
+
+        // The following variables are defined in the global scope
+// const num1 = 20;
+// const num2 = 3;
+// const name = "Chamakh";
+
+// // This function is defined in the global scope
+// function multiply() {
+//   return num1 * num2;
+// }
+
+// console.log(multiply()); // 60
+
+// // A nested function example
+// function getScore() {
+//   const num1 = 2;
+//   const num2 = 3;
+
+//   function add() {
+//     return `${name} scored ${num1 + num2}`;
+//   }
+
+//   return add();
+// }
+
+// console.log(getScore()); // "Chamakh scored 5"
+
+
+
+//HOISTING
+// functionName()
+// function functionName(){   //undefined
+//     console.log("vidya")
+// }
+// console.log(x)
+// var x=5
+
+
+
+//PARAMS AND ARGUMENTS
+
+//  function square(num){ //NUM IS PARAMS
+//         return num*num
+//         }
+//         square(5)//ARGUMENTS
+
+//  function MULTIPLY(num1,num2){ 
+//         console.log (num1*num2)
+//         }
+//         MULTIPLY(5,6)   // output 30
+
+
+        // function MULTIPLY(...nums){ // rest operator
+        // console.log (nums[0]*nums[1])
+        // }
+        // var arr=[5,6]
+        // MULTIPLY(...arr) //spread operator
+
+//CALLBACK FYNCTIONS
+
+// document.addEventListener("click",function(params){
+
+// })
+
+//ARROW FUNCTIONS
+
+// const add=(num,num2)=> {
+//     return num+num2
+// }
+
+
+
+//Q6 ARROW FUNCTION VS REGULAR FUNCTION
+
+//1 syntax
+// function  square(num){
+//     return num*num
+// }
+
+// const sqaure=(num)=>{
+//     return num*num
+// }
+
+//2 Implicit "return " keyword
+const sqaure=(num)=> num*num
+
+//3 arguments 
+function  fn(){
+     console.log(arguments)  //Arguments(3) 1,3,2
+}
+// fn(1,3,2)
+
+const   fnArr=()=>{
+     console.log(arguments)  //index.html:149 Uncaught ReferenceError: arguments is not defined  at fnArr
+}
+fnArr(1,3,2)
+
+
+
+//4 this keyword
+let user={
+    username:"vidya",
+    rc1:()=>{
+        console.log("hello"+this.username)
+    },
+    rc2(){
+        console.log("hello2"+this.username)
+    }
+}
+user.rc1()
+user.rc2()
+    </script>
+</body>
+</html>

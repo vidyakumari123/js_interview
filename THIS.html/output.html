@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>outout based</h1>
+    <script>
+        const user={
+            firstname:"divya",
+            getName(){
+                const firstname="divya sharma"
+                return this.firstname
+            }
+        }
+     //divya
+        console.log(user.getName());
+//////////////////////////////////////////////////////////////////////
+//Q2 WHAT IS THE RESULT OF ACCESSING ITS REF?WHY?
+
+// function makeuser(){
+//     return{
+//         name:"john",
+//         ref: this,
+//     }
+// }
+// let userone =makeuser()
+// // console.log(userone.ref.name);//nothing
+// console.log(userone) //{name: 'john', ref: Window}
+
+//////////////////////////////////////////////////////////////////
+///how to fix
+
+function makeuser(){
+    return{
+        name:"john",
+        ref(){
+            return this
+        }
+    }
+}
+let userone =makeuser()
+console.log(userone.ref().name) //john
+////////////////////////////////////////////////////////////////////
+
+// const userthree ={
+//     name:"vidya sharma",
+//     logMessage(){
+//         console.log(this.name);
+//     }                                //nothing
+// }
+// setTimeout(userthree.logMessage,1000)
+
+//how to fix
+
+const userthree ={
+    name:"vidya sharma",
+    logMessage(){
+        console.log(this.name);
+    }
+}
+setTimeout(function(){
+    userthree.logMessage()
+},1000)                       // vidya sharma
+
+////////////////////////////////////////////////////////////////////////
+
+const userfour={
+    name:"preetam",
+    greet(){
+        return `Hello,${this.who}!`
+    },
+    farewell:()=>{
+        return `bye,${this.who}!`
+    }
+}
+console.log(userfour.greet());
+console.log(userfour.farewell()); //Hello,undefined! bye,undefined! vidya sharma
+
+/////////////////////////////////////////////////////////////////////////
+
+let calculator={
+    //...............your code...........
+
+    read(){
+        this.a=+prompt("a = ",0)
+        this.b=+prompt("b=",0)
+    },
+    sum(){
+        return this.a +this.b
+    },
+    mul(){
+        return this.a  * this.b
+    }
+
+}
+
+calculator.read()
+console.log(calculator.sum());
+console.log(calculator.mul());
+
+////////////////////////////////////////////////////////////////////////
+// var length =4
+// function callback(){
+//     console.log(this.length);
+// }
+
+
+// const object ={
+//     length :5, //4
+//     method(fn){
+//         fn()
+//     }
+
+// }
+// object.method(callback)
+
+
+var length =4
+function callback(){
+    console.log(this.length);
+}
+
+
+const object ={
+    length :5,           //3
+    method(){
+       arguments[0]()
+    }
+
+}
+object.method(callback,2,3)
+/////////////////////////////////////////////////////////////
+
+
+const calc={
+    total:0,
+    add(a){
+        this.total += a
+        return this 
+    },
+    multiply(a){
+        this.total *= a        //30
+        return this
+    },
+    subtract(a){
+        this.total -= a
+        return this
+    }
+}
+const result=calc.add(10).multiply(5).subtract(30).add(10)
+console.log(result.total);
+</script>
+</body>
+</html>

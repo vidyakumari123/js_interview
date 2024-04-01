@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        output based
+    </h1>
+    <script>
+        // Q1 WHAT IS THE OUPUT
+
+//         const obj={
+//             a:"one",
+//             b:"two",
+//             a:"three"                //{a: 'three', b: 'two'}
+//         }
+//         console.log(obj)
+
+
+//     //////////////////////////////////////////////////////////////////////
+    
+//      //Q2 CREATE A FUNCTION MULTIPLYBYTWO(OBJ) THAT MULTIPLIES ALL NUMERIC PROPERTY VALUES OF NUM BY 2
+
+//      let nums={
+//         a:100,
+//         b:200,
+//         title:"my nums",
+//      }
+//      multiplynytwo(nums)
+
+//   function multiplynytwo(obj){              //{a: 200, b: 400, title: 'my nums'}
+//     for(key in obj){
+//         if(typeof obj[key] ==="number"){
+//             obj[key] *= 2
+//         }
+//     }
+//   }
+
+//   console.log(nums)
+
+//   /////////////////////////////////////////////////////////
+
+// //Q3 what si the output of the following code
+
+// const a={}
+// const b={key :"b"}
+// const c={key :"c"}
+//                                //456
+
+// a[b]=123
+// a[c]=456
+
+// console.log(a[b])
+
+
+// ///////////////////////////////////////////////////////////////////////
+
+// // Q4- WHAT IS JSON.STRIGNGIFY AND JSON.PASRSE
+
+// // // const user={
+// //     name:"vidya",
+// //     age:24
+// // }                 
+// //  const strObj =JSON.stringify(user)
+// //  console.log(strObj);
+
+// // if you want to covert in string json.stringfy
+
+// console.log(JSON.stringify(user));  //{"name":"vidya","age":24}
+
+
+
+// //usecase 
+// //--local storage  
+// localStorage.setItem("test",strObj)//test	{"name":"vidya","age":24}
+// localStorage.setItem("test",user)//test	[object Object]
+// console.log(localStorage.getItem("test", user))//[object Object]
+// //covert to back to an object
+// console.log(JSON.parse (strObj));    //{name: 'vidya', age: 24}   
+
+// /////////////////////////////////////////////////////////////////////////
+
+// //Q5 WHAT IS THE OUTPUT
+
+// console.log([..."vidya"]);  // ['v', 'i', 'd', 'y', 'a']
+
+// //////////////////////////////////////////////////////////////////////
+// const usertwo ={name:"vidya",age:23}
+// const admin ={ admin:true ,...usertwo}
+//                                                  //{ admin: true, name: 'vidya', age: 23 }
+// console.log(admin);
+
+///////////////////////////////////////////////////////////////////////
+
+const setting={
+    username:"divya",
+    level:23,
+    health:90
+}
+                 
+const data=JSON.stringify(setting,["level","health"])     //{"level":23,"health":90}
+console.log(data)
+
+/////////////////////////////////////////////////////////////
+const shape={
+    radius:10,
+    diameter(){
+        return this.radius *2
+    },
+    perimeter:()=> 2* Math.PI * this.radius
+}
+                                           //20 nan
+console.log(shape.diameter());
+console.log(shape.perimeter());
+
+/////////////////////////////////////////////////////
+//Q-9 WHAT IS DESTRUCTURING IN OBJECTS
+
+let user={
+    name:"vidya",
+    age:23
+}           
+
+// reanme 
+const {name:nyname}= user //vidya
+
+//vidya
+// const {name}= user
+console.log(nyname);
+
+// NESTED WAY
+
+let userone={
+ name:"divya",
+ age:23,
+ fullName:{
+    first:"neha",
+    last:"sharma"
+ }
+}
+const name="hello one"
+const {fullName:{
+    first
+},}=userone
+console.log(first);//neha
+
+//////////////////////////////////////////////////////////////////
+
+function getItems(fruitList,favouriteFruit,...args){
+    return [...fruitList,...args,favouriteFruit]
+}
+
+console.log(["bannana","apple"],"paan","orange") //['bannana', 'apple'] 'paan' 'orange'
+//////////////////////////////////////////////////////
+
+//OBJECT REFRENCING
+
+let c={greeting :"Hey"}
+let d                     //here we are simply providing the reference and not the complete object
+d=c
+c.greeting="hello"                //hello
+console.log(d.greeting);
+
+//////////////////////////////////////////////////////////
+
+console.log({a:1}=={a:1}); // false
+console.log({a:1}=={a:1});// false
+
+/////////////////////////////////////////////////////////
+
+
+
+
+    </script>
+
+
+</body>
+</html>

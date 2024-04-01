@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> THIS KEYWORD</h1>
+    <script>
+         //this keyword  in javascript (implicit Binding)
+         //explain this keyword
+
+
+         this.a =5   //global object =winddow object
+         console.log(this ) // window
+ ////////////////////////////////////////////
+
+//  this.a=5
+//  function getParam(){
+//     console.log(this.a);      //5
+//  }
+// getParam()
+
+////////////////////////////////////////
+//arrow function
+this.a=5
+ const  getParam=()=>{
+    console.log(this.a);      //5
+ }
+getParam()
+
+///////////////////////////////////////////////
+let user ={
+    name:"vidya",
+    age:23,
+    getDetails(){  //vidya
+        console.log(this.name)
+    }
+}
+user.getDetails()
+
+
+//////////////////////////////////////////////////
+
+//////EVEN NESTED FURTHER INSIDE THE OBJECT
+
+let userone ={
+    name:"vidya",
+    age:23,
+    childObj:{
+        newName:"HELLO EVERYONE",
+        getDetails(){
+            console.log(this.newName,"and",this.name)        //HELLO EVERYONE and undefined
+        }  //vidya
+       
+    }
+}
+userone.childObj.getDetails()
+///////////////////////////////////////////////////////////////////
+let userthree ={
+    name:"divya",
+    age:23,
+    getDetails:()=>{
+        console.log(this.name);
+    }
+}
+userthree.getDetails()
+
+///////////////////////////////////////////////////////////
+
+let userfour={
+    name:"neha",
+    age:23,
+    getDetails(){
+        const nestedArrow=()=>console.log(this.name);
+        nestedArrow() ////neha
+    }
+}
+userfour.getDetails()
+
+//////////////////////////////////////////////////////////////////
+
+//how this keyword will perform inside of a class or a constructor
+
+class userc{
+    constructor(n){
+        this.name=n
+    }
+getName(){
+    console.log(this.name); //userc {name: 'vidya'   name: "vidya"
+
+}
+}
+
+const usercc=new userc("vidya")
+
+// console.log(usercc);
+usercc.getName()//vidya
+    </script>
+</body>
+</html>

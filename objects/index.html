@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>object destructuring</h1>
+    <script>
+// object in js
+// const user= {
+//     name:"vidya",
+//     age:23
+// }
+//modify
+// user.name="neha"
+
+// delete
+// delete user.age
+// console.log(user)
+
+
+/////////////////////////////////////////////////////////////////////
+
+// const func=(function(a){
+//     delete a
+//     return a
+// })(5)                              // 5
+// console.log(func)
+
+///////////////////////////////////////////////////////////////////////
+// const user= {
+//     name:"vidya",
+//     age:23,
+//    " like this video": true,
+// }
+
+//////////////////////////////////////////////////////////////////////
+
+// const property ="firstname"
+// const name ="vidya sharma"
+
+// const user={
+//     property:name
+// }
+// console.log(user)
+
+// const property ="firstname"
+// const name ="vidya sharma"                    //{firstname: 'vidya sharma'}
+
+// const user={
+//    [ property]:name
+// }
+// console.log(user)
+
+
+// const user= {
+//     name:"vidya",
+//     age:23,
+//     isTotallyAwesome:true,
+// }
+// for(key in user)                      // through loop 
+// console.log(key)                     //name age isTotallyAwesome
+
+
+const user= {
+    name:"vidya",
+    age:23,                         //valuse acces inside the value of this key
+    isTotallyAwesome:true,          //index.html:73 vidya  23   true
+}                                   
+for(key in user)
+console.log(user[key]                   ) 
+    </script>
+</body>
+</html>

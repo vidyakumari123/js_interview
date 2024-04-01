@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CLOSURES anf LEXICAL</h1>
+    <script>
+        //closure 
+        // lexical
+
+        // var username="vidya"
+
+        // //global scope
+        // function local(){
+        //     //local scope
+
+        //     console.log(username)
+        // }
+
+        // local()
+
+
+       
+
+//global scope
+// function local(){
+//     //local scope
+//     var username="vidya"
+//                               //ReferenceError: username is not defined
+// }
+// console.log(username)
+// local()
+
+
+// function subscribe(){
+//     var name="vidya"
+
+//     //inner scope 2
+//     function displayname(){
+//         //inner scope
+//         alert(name)
+//     }
+
+//     displayname()
+// }
+// subscribe()
+
+
+// function makeFunc() {
+//   const name = "Mozilla";
+//   function displayName() {
+//     console.log(name);
+//   }
+//   return displayName;
+// }
+
+// const myFunc = makeFunc();
+// myFunc();
+
+
+
+function makeFunc() {
+  const name = "Mozilla";
+  function displayName(num) {          //Mozilla 5
+    console.log(name,num); 
+  }     
+  return displayName;
+}
+
+makeFunc()(5)
+
+// Closure scope chain
+// Every closure has three scopes:
+
+// Local scope (Own scope)
+// Enclosing scope (can be block, function, or module scope)
+// Global scop
+
+// var username="vidya"
+// function makeFunc() {
+//   const name = "Mozilla";
+//   function displayName(num) {          //Mozilla 5 vidya
+//     console.log(name,num,username); 
+//   }     
+//   return displayName;
+// }
+
+// makeFunc()(5)
+
+
+
+// global scope
+const e = 10;
+function sum(a) {
+  return function (b) {
+    return function (c) {             //20
+      // outer functions scope
+      return function (d) {
+        // local scope
+        return a + b + c + d + e;
+      };
+    };
+  };
+}
+
+console.log(sum(1)(2)(3)(4)); // 20
+
+    </script>
+</body>
+</html>
